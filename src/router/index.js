@@ -14,7 +14,7 @@ import album from '../views/album.vue'
 import Article from '../views/Article.vue'
 import Author from '../views/Author.vue'
 import Images from '../views/Images.vue'
-import Massageboard from '../views/Massageboard.vue'
+import Massageboard from '../views/MassageBoard.vue'
 
 
 Vue.use(Router)

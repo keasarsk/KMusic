@@ -16,6 +16,7 @@ import Author from '../Views/Author.vue'
 import Images from '../Views/Images.vue'
 import Massageboard from '../Views/Massageboard.vue'
 
+
 Vue.use(Router)
 
 export default new Router({

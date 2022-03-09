@@ -1,6 +1,8 @@
 <template lang="">
     <div class="wrapper">
-        <div class="left-side">
+
+        <!-- 左菜单栏 -->
+        <!-- <div class="left-side">
             <div class="side-wrapper">
                 <div class="side-title">推荐</div>
                     <div class="side-menu">
@@ -81,7 +83,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- main -->
         <router-view :key="key"></router-view>
     </div>

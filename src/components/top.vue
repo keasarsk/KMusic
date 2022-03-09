@@ -13,24 +13,19 @@
       <div class="back_ref" @click="ref"> <img src="../../static/images/刷新.png" alt=""></div> -->
 
 
-      <!-- <div class="menu-circle"></div> -->
+
       <div class="header-menu">
-        <!-- <router-link to="/" class="menu-link is-active">音乐</router-link> -->
-        <router-link to="/" class="menu-link" active-class="is-active">音乐</router-link>
-
-        <!-- <router-link to="/newmv" class="menu-link" active-class="is-active">MV</router-link> -->
+        <router-link to="/" class="menu-link" active-class="is-active">Music</router-link>
         <router-link to="/article" class="menu-link" active-class="is-active">Article</router-link>
-
-        <!-- <router-link to="/radio" class="menu-link" active-class="is-active">电台</router-link> -->
         <router-link to="/images" class="menu-link" active-class="is-active">Images</router-link>
-        <!-- <a class="menu-link" href="#">电台</a> -->
-        <!-- <router-link to="./wallpaper" class="menu-link notify" active-class="is-active">二次元</router-link> -->
-        <router-link to="/massageBoard" class="menu-link" active-class="is-active">MassageBoard</router-link>
+        <router-link to="/massageboard" class="menu-link" active-class="is-active">MassageBoard</router-link>
+      </div>
 
-      </div>
-      <div class="search-bar">
+      <!-- 顶部搜索栏 -->
+      <!-- <div class="search-bar">
         <input type="text" placeholder="搜索" @keyup.enter='toResult' v-model='searchvalue'>
-      </div>
+      </div> -->
+
       <div class="header-profile">
         <div class="notification">
           <span class="notification-number">3</span>
@@ -46,9 +41,11 @@
         <img class="profile-img" src="../../static/images/keasar.jpg" alt="">
       </div>
     </div>
+
+    <!-- 主内容 -->
     <Main></Main>
 
-    <div class="overlay-app"></div>
+    <!-- <div class="overlay-app"></div> -->
 
   </div>
 

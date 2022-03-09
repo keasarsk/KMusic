@@ -11,10 +11,14 @@ import Playlist from '../views/PlaylistDetails.vue'
 import Leaderboard from '../views/Leaderboard.vue'
 import singerlist from '../views/singerlist.vue'
 import album from '../views/album.vue'
-import Article from '../views/Article.vue'
+// import Article from '../views/Article.vue'
+// import Article from '../components/playpure.vue'
+import Article from '../views/Content1.vue'
+
+
 import Author from '../views/Author.vue'
 import Images from '../views/Images.vue'
-import Massageboard from '../views/MassageBoard.vue'
+import MassageBoard from '../views/MassageBoard.vue'
 
 
 Vue.use(Router)
@@ -98,12 +102,13 @@ export default new Router({
     {
       path:'/massageboard',
       name:'massageboard',
-      component:Massageboard
+      component:MassageBoard
     },
     {
       path:'/author',
       name:'author',
       component:Author
     },
+
   ]
 })

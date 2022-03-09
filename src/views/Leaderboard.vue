@@ -1,6 +1,8 @@
 <template lang="">
     <div class="main-container">
-        <div class="main-header">
+
+        <!-- 上部横条 -->
+        <!-- <div class="main-header">
             <div class="main-header">
                 <a class="menu-link-main" href="#">排行榜</a>
                 <div class="header-menu">
@@ -10,7 +12,7 @@
                     <router-link to="#" active-class="is-active">分类</router-link>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="content-wrapper">
             <div class="content-section">
                 <div class="apps-card">

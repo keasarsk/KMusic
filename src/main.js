@@ -19,7 +19,16 @@ import store from './store/index'
 Vue.use(ElementUI);
 
 
+// 引入vue-audio-better
+import VueAudio from 'vue-audio-better'
+Vue.use(VueAudio)
 
+
+// 倒入view ui
+// npm install view-design --save
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+Vue.use(ViewUI);
 
 Vue.config.productionTip = false
 

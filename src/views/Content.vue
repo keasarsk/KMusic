@@ -1,13 +1,17 @@
 <template lang="">
     <div class="main-container">
-        <div class="main-header">
+        <!-- <div class="main-header">
             <a class="menu-link-main" href="#">每日推荐</a>
+            
             <div class="header-menu">
                 <router-link to="/" active-class="is-active">专辑</router-link>
                 <router-link to="/Leaderboard" active-class="is-active">排行榜</router-link>
                 <router-link to="/singerlist" active-class="is-active">歌手</router-link>
                 <router-link to="#" active-class="is-active">分类</router-link>
             </div>
+        </div> -->
+        <div>
+            
         </div>
         <div class="content-wrapper">
             <div class="content-wrapper-header">
@@ -16,8 +20,10 @@
                         <h3 class="img-content">
                             境界的彼方
                         </h3>
+                        
                         <div class="content-text">
-                            《境界的彼方》是由鸟居奈古梦著作、鸭居知世插画的轻小说，于2012年6月9日，由KAESUMA文库文库（京都动画）发行。小说曾获得第2回京都动画大赏（小说部门）奖励赏。</div>
+                            《境界的彼方》是由鸟居奈古梦著作、鸭居知世插画的轻小说，于2012年6月9日，由KAESUMA文库文库（京都动画）发行。小说曾获得第2回京都动画大赏（小说部门）奖励赏。
+                        </div>
                         <button class="content-button">
                             <router-link class="content-button" :to="{ path:'/search',query:{keyworks:'境界的彼方'}}">试听专辑
                             </router-link>
@@ -26,6 +32,7 @@
                 </div>
                 <img class="content-wrapper-img" src="../../static/images/zgr1.jpg" alt="">
             </div>
+
 
             <div class="content-section">
                 <div class="content-section-title">最新歌曲</div>
@@ -74,7 +81,9 @@
                     </li>
                 </ul>
             </div>
+
             <div class="content-section">
+
                 <div class="content-section-title">热门歌单</div>
                 <div class="apps-card">
                     <div class="block" v-for="item in indexsonglist" @click="openplaylist(item.id)">

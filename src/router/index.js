@@ -11,9 +11,9 @@ import Playlist from '../views/PlaylistDetails.vue'
 import Leaderboard from '../views/Leaderboard.vue'
 import singerlist from '../views/singerlist.vue'
 import album from '../views/album.vue'
-// import Article from '../views/Article.vue'
+import Article from '../views/Article1.vue'
 // import Article from '../components/playpure.vue'
-import Article from '../views/Content1.vue'
+// import Article from '../views/Content1.vue'
 
 
 import Author from '../views/Author.vue'

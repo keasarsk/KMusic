@@ -4,6 +4,8 @@
         <Affix :offset-bottom="20">
 
         <div class="music__main">
+
+            <!-- x旋转小图 -->
             <div :class="['music__main__cover',isPlay ? 'active' : '']" @click="play">
                 <img src="../assets/1.jpg" />
             </div>
@@ -21,16 +23,24 @@
             
         </div>
 
+        <!-- 播放按钮 -->
         <div :class="['music__btn',isPlay ? 'active' : '']" @click="play">
-            <i class="el-icon-video-play" @click="switchMusic"></i>
+            <!-- <i class="el-icon-video-play" @click="switchIcon"></i> -->
+            <div class="switchIcon">
+                <i ref="off" class="el-icon-star-off" @click="change1" style="display: block"></i>
+                <i ref="on" class="el-icon-star-on" @click="change2" style="display: none"></i>
+            </div>
         </div>
+        <!-- 下一曲 -->
         <div class="music__btn1">
             <i class="el-icon-arrow-right" @click="switchMusic"></i>
         </div>
+        <!-- 上一曲 -->
         <div class="music__btn2">
             <i class="el-icon-arrow-left" @click="switchMusic"></i>
         </div>
         <!-- <el-icon><refresh-left /></el-icon> -->
+        <!-- 背景 -->
         <div class="music__mask"></div>
         <audio ref="music" :src="audioSrc"></audio>
         </Affix>
@@ -39,6 +49,7 @@
 </template>
 
 <script>
+    import switchIcon from './switchIcon.vue'
     export default {
         data() {
             this.audioSrcs = [
@@ -54,12 +65,24 @@
                 audioSrc: this.audioSrcs[0]
             };
         },
+        components(){
+            switchIcon
+        },
         created() { },
         mounted() {
             this.watchMusicTime();
         },
         methods: {
             play() {
+                if (this.music.paused) {
+                    this.music.play();
+                    this.isPlay = true;
+                } else {
+                    this.music.pause();
+                    this.isPlay = false;
+                }
+            },
+            switchIcon(){
                 if (this.music.paused) {
                     this.music.play();
                     this.isPlay = true;
@@ -147,6 +170,14 @@
                     }
                     this.totalMusicTime = minutes + ":" + seconds;
                 };
+            },
+            change1() {
+                this.$refs.on.style.display = "block";
+                this.$refs.off.style.display = "none";
+            },
+            change2() {
+                this.$refs.on.style.display = "none";
+                this.$refs.off.style.display = "block";
             }
         }
     };
@@ -195,6 +226,9 @@
                 flex-direction: column;
                 justify-content: space-evenly;
                 padding-left: 15px;
+                padding-top: 40px;
+
+
                 box-sizing: border-box;
                 .time {
                     display: flex;
@@ -210,7 +244,7 @@
                     background-color: #fbfbfb;
                     border-radius: 8px;
                     position: relative;
-                    border-radius: 8px;
+                    
                     overflow: hidden;
                     cursor: pointer;
                     &__slid {

@@ -21,27 +21,31 @@ export default new Vuex.Store({
       {
         name: "The Scientist",
         artist: "coldplayer",
-        url:"/static/songs/TheScientist.m4a",
+        url: 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
+        // url:"/static/songs/TheScientist.m4a",
         cover: "static/images/吸底模式aplayer图标/1.jpg",
         lrc: "static/songs/The Scientist .lrc",//歌词文件
       },
       {
         name: 'MerryChristmas',
         artist: 'keasar',
-        url: '/static/songs/MerryChristmasMe.m4a',
+        url: 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
+        // url: '/static/songs/MerryChristmasMe.m4a',
         cover: 'static/images/吸底模式aplayer图标/2.jpg', // prettier-ignore
       },
       {
         name: 'Paradise…HowFar',
         artist: 'Chairs',
-        url: '/static/songs/Paradise…HowFar.mp3',
+        url: 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
+        // url: '/static/songs/Paradise…HowFar.mp3',
         cover: 'static/images/吸底模式aplayer图标/3.jpg', // prettier-ignore
         lrc: "static/songs/Paradise___ How Far.lrc",
       },
       {
         name: 'A Thousand Years',
         artist: 'Christina Perri',
-        url: '/static/songs/AThousandYears.mp3',
+        // url: '/static/songs/AThousandYears.mp3',
+        url: 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
         cover: 'static/images/吸底模式aplayer图标/4.jpg', // prettier-ignore
         lrc: 'static/songs/AThousandYears.lrc',
 

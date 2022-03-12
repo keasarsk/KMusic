@@ -1,58 +1,15 @@
 <template>
     <div class="music">
         <Affix :offset-bottom="20">
+            <div class="music__main__cover">
+                <img src="../assets/1.jpg" />
+            </div>
         <div class="music__main">
-            <!-- x旋转小图 -->
-            <div :class="['music__main__cover',isPlay ? 'active' : '']" @click="play">
-                <img src="../assets/1.jpg" />
-            </div>  
-            <div class="music__mask"></div>
-
-        </div>
-
-        <div>
-
-            <!-- x旋转小图 -->
-            <!-- <div :class="['music__main__cover',isPlay ? 'active' : '']" @click="play">
-                <img src="../assets/1.jpg" />
-            </div> -->
-            <!-- 进度条 -->
-            <div class="music__main__timeBar">
-                <div class="time">
-                    <span>{{ realMusicTime }}</span>
-                    <span>{{ totalMusicTime }}</span>
-                </div>
-                <div class="bar" ref="bar" @click="handClickBar">
-                    <div class="bar__slid" ref="slid" @click="handClickBar"></div>
-                </div>
-            </div>
-                <!-- 播放按钮 -->
-            <div :class="['music__btn',isPlay ? 'active' : '']" @click="play">
-                <!-- <i class="el-icon-video-play" @click="switchIcon"></i> -->
-                <div class="switchIcon">
-                    <i ref="off" class="el-icon-video-play" @click="change1" style="display: block"></i>
-                    <i ref="on" class="el-icon-video-pause" @click="change2" style="display: none"></i>
-                </div>
-            </div>
-            <!-- 下一曲 -->
-            <div class="music__btn1">
-                <i class="el-icon-arrow-right" @click="switchMusic"></i>
-            </div>
-            <!-- 上一曲 -->
-            <div class="music__btn2">
-                <i class="el-icon-arrow-left" @click="switchMusic"></i>
-            </div>
-            <div class="music__fold">
-                <i class="el-icon-s-fold" @click="switchMusic"></i>
-            </div>
-            <!-- <div class="music__fold">
-                <el-icon><fold /></el-icon>
-            </div> -->
+            
             <!-- <el-icon><refresh-left /></el-icon> -->
             <!-- 背景 -->
-            <!-- <div class="music__mask"></div> -->
+            <div class="music__mask"></div>
             <audio ref="music" :src="audioSrc"></audio>        
-            <!-- <audio src="https://api.imjad.cn/cloudmusic/?type=song&id=1712252053" type="audio/mpeg"></audio>    -->
         </div>
         </Affix>
     </div>
@@ -66,7 +23,6 @@
                 'static/songs/MerryChristmasMe.m4a',
                 'static/songs/Paradise…HowFar.mp3',
                 'static/songs/TheScientist.m4a'
-                // 想使用网易云api得先下载服务
                 // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
                 // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
                 // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
@@ -205,23 +161,23 @@
         }
     }
     .music {
-        width: 500px;
+        width: 80px;
         /* background-image: url('../assets/green.jpg'); */
 
         margin: 0 auto;
-        /* border-radius: 15px; */
-        position: relative;
+        /* 圆角 */
+        border-radius: 15px;
+
+
+        position: fixed;
+        left:25px;
+        top:bottom - 80px;
+
+        
         padding: 0px;
         box-sizing: border-box;
         overflow: hidden;
-
-        /* border-radius: 50px;
-        background: linear-gradient(225deg, #f0f0f0, #cacaca);
-        box-shadow:  -11px 11px 22px #868686,
-                    11px -11px 22px #ffffff; */
-        
         &__main {
-            
             display: flex;
             &__cover {
                 width: 80px;
@@ -240,88 +196,9 @@
                     animation-play-state: running; // 运行动画
                 }
             }
-            &__timeBar {
-                border-radius: 15px;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                /* padding-left: 100px; */
-                padding-top: 5px;
-
-
-                box-sizing: border-box;
-                .time {
-                    display: flex;
-                    justify-content: space-between;
-                    color: #fff;
-                    span {
-                        font-size: 15px;
-                        line-height: 1;
-                    }
-                }
-                .bar {
-                    height: 5px;
-                    background-color: #fbfbfb;
-                    border-radius: 8px;
-                    position: relative;
-                    
-                    overflow: hidden;
-                    cursor: pointer;
-                    &__slid {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        background-color: #000080;
-                        height: 100%;
-                        width: 0;
-                        transition: width 0.3s;
-                    }
-                }
-            }
+            
         }
-        &__btn {
-            position: absolute;
-            right: 50%-3px;
-            top: 20%;
-            i {
-                font-size: 55px;
-                color: #fff;
-                cursor: pointer;
-            }
-        }
-        &__btn1 {
-            position: absolute;
-            right: 35%-1px;
-            top: 30%;
-
-            i {
-                font-size: 30px;
-                color: #fff;
-                cursor: pointer;
-            }
-        }
-        &__btn2 {
-            position: absolute;
-            right: 65%-1px;
-            top: 30%;
-
-            i {
-                font-size: 30px;
-                color: #fff;
-                cursor: pointer;
-            }
-        }
-        &__fold {
-            position: absolute;
-            right: 10px;
-            top: 35%;
-            i {
-                font-size: 20px;
-                color: #fff;
-                cursor: pointer;
-            }
-        }
+        
         &__mask {
             background-image: url('../assets/green.jpg');
             z-index: -2;
@@ -329,8 +206,8 @@
             background-size: cover;
             background-position: 50%;
             border-radius: 30px;
-            filter: blur(-1px);
-            opacity:0.8;
+            /* filter: blur(-1px); */
+            opacity:0.9;
             transition: all 0.8s;
             position: absolute;
             top: -11px;
@@ -349,5 +226,4 @@
             }
         }
     }
-  
     </style>

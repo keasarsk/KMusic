@@ -4,6 +4,7 @@
     <Top></Top>
     <!-- <aplayer></aplayer> -->
     <foot></foot>
+    <!-- <foot2></foot2> -->
     <!-- <vab></vab> -->
 
   </div>
@@ -16,6 +17,8 @@ import Top from './components/top.vue';
 // import vab from './components/vueaudiobetter.vue';
 
 import foot from './components/foot2.vue';
+// import foot2 from './components/foot2 copy.vue';
+
 
 export default {
   name: 'App',
@@ -25,6 +28,7 @@ export default {
     // aplayer,
     // vab,
     foot,
+    // foot2
   },
 
 }

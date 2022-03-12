@@ -27,8 +27,8 @@
         <div :class="['music__btn',isPlay ? 'active' : '']" @click="play">
             <!-- <i class="el-icon-video-play" @click="switchIcon"></i> -->
             <div class="switchIcon">
-                <i ref="off" class="el-icon-star-off" @click="change1" style="display: block"></i>
-                <i ref="on" class="el-icon-star-on" @click="change2" style="display: none"></i>
+                <i ref="off" class="el-icon-video-play" @click="change1" style="display: block"></i>
+                <i ref="on" class="el-icon-video-pause" @click="change2" style="display: none"></i>
             </div>
         </div>
         <!-- 下一曲 -->

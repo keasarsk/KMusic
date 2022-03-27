@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Content from '../views/Content.vue'
+// import playpure from '../views/Article.vue'
+import playpure from '../views/playpureme.vue'
 import search from '../views/SongSearch.vue'
 import defaultlist from '../views/defaultList.vue'
 import playmv from '../views/playmv.vue'
@@ -11,7 +13,7 @@ import Playlist from '../views/PlaylistDetails.vue'
 import Leaderboard from '../views/Leaderboard.vue'
 import singerlist from '../views/singerlist.vue'
 import album from '../views/album.vue'
-import Article from '../views/Article1.vue'
+import Article from '../views/Article.vue'
 // import Article from '../components/playpure.vue'
 // import Article from '../views/Content1.vue'
 
@@ -29,13 +31,20 @@ export default new Router({
     {
       path: '/',
       name: 'Content',
-      component: Content
-    },
-    {
-      path: '/content',
-      name: 'Content',
       component: Content,
+      redirect:'/content',
+      children:[{
+        path: '/content',
+        name: 'Content',
+        component: Content,
+      
+      }]
     },
+    // {
+    //   path: '/content',
+    //   name: 'Content',
+    //   component: Content,
+    // },
     {
       path:'/search',
       name:'search',
@@ -93,6 +102,7 @@ export default new Router({
       path:'/article',
       name:'article',
       component:Article
+
     },
     {
       path:'/images',
@@ -108,6 +118,11 @@ export default new Router({
       path:'/author',
       name:'author',
       component:Author
+    },
+    {
+      path:'/playpure',
+      name:'playpure',
+      component:playpure
     },
 
   ]

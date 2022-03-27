@@ -43,7 +43,10 @@
             <!-- pure模式 -->
             <div class="music__pure">
                 <router-link to="/playpure" active-class="is-active">
-                    <i class="el-icon-coffee-cup"></i>
+                    <!-- <i class="el-icon-coffee-cup"></i> -->
+                    <svg width="23" height="27" viewBox="0 0 23 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8896 23.7417C19.6365 24.9935 22.0673 23.7449 22.0673 21.5958V5.40423C22.0673 3.25511 19.6365 2.0065 17.8896 3.25828L6.59146 11.3541C5.12173 12.4072 5.12173 14.5928 6.59147 15.6459L17.8896 23.7417Z" fill="#AFB5C0"/>
+                        <rect y="4.26471" width="2" height="18" fill="#AFB5C0"/></svg>
                 </router-link>
             </div>
 

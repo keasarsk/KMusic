@@ -17,7 +17,7 @@
       <div class="header-menu">
         <router-link to="/" class="menu-link" active-class="is-active">Music</router-link>
         <router-link to="/article" class="menu-link" active-class="is-active">Article</router-link>
-        <router-link to="/images" class="menu-link" active-class="is-active">Images</router-link>
+        <router-link to="/albumme" class="menu-link" active-class="is-active">Album</router-link>
         <router-link to="/massageboard" class="menu-link" active-class="is-active">MassageBoard</router-link>
       </div>
 

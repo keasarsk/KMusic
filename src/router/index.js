@@ -14,6 +14,7 @@ import Leaderboard from '../views/Leaderboard.vue'
 import singerlist from '../views/singerlist.vue'
 import album from '../views/album.vue'
 import Article from '../views/Article.vue'
+import Albumme from '../views/Albumme.vue'
 // import Article from '../components/playpure.vue'
 // import Article from '../views/Content1.vue'
 
@@ -123,6 +124,11 @@ export default new Router({
       path:'/playpure',
       name:'playpure',
       component:playpure
+    },
+    {
+      path:'/albumme',
+      name:'Albumme',
+      component:Albumme
     },
 
   ]

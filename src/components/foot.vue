@@ -1,6 +1,8 @@
 <template>
     <div class="music">
         <Affix :offset-bottom="20">
+            <div class="music__mask"></div>
+
         <div>
             
             <!-- 旋转小图 -->
@@ -9,7 +11,7 @@
             </div>
         
             <!-- 背景色 -->
-            <div class="music__mask"></div>
+            <!-- <div class="music__mask"></div> -->
             <!-- 进度条 -->
             <div class="music__main__timeBar">
                 <div class="time">
@@ -219,6 +221,7 @@
 
         margin: 0 auto;
         /* border-radius: 15px; */
+        border-radius: 30px;
         position: relative;
         padding: 0px;
         box-sizing: border-box;

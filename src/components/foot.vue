@@ -235,19 +235,18 @@
                 width: 80px;
                 height: 80px;
                 left: 41%;
-                /* top: -300%; */
                 overflow: hidden;
                 border-radius: 50%;
                 background-color: #dddddd;
                 cursor: pointer;
                 animation: musicRotate 10s linear infinite;
-                animation-play-state: paused; // 暂定动画
+                animation-play-state: paused; 
                 img {
                     width: 100%;
                     height: 100%;
                 }
                 &.active {
-                    animation-play-state: running; // 运行动画
+                    animation-play-state: running; 
                 }
             }
             &__timeBar {
@@ -351,7 +350,7 @@
             right: -13px;
             left: -12px;
             bottom: -11px;
-            &::before {
+            /* &::before {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -360,8 +359,9 @@
                 z-index: -1;
                 content: '';
                 background-color: rgba(0, 0, 0, 0.08);
-            }
+            } */
         }
     }
+   
   
     </style>

@@ -45,20 +45,17 @@
             <!-- pure模式 -->
             <div class="music__pure">
                 <router-link to="/playpure" active-class="is-active">
-                    <!-- <i class="el-icon-coffee-cup"></i> -->
-                    <svg width="23" height="27" viewBox="0 0 23 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8896 23.7417C19.6365 24.9935 22.0673 23.7449 22.0673 21.5958V5.40423C22.0673 3.25511 19.6365 2.0065 17.8896 3.25828L6.59146 11.3541C5.12173 12.4072 5.12173 14.5928 6.59147 15.6459L17.8896 23.7417Z" fill="#AFB5C0"/>
-                        <rect y="4.26471" width="2" height="18" fill="#AFB5C0"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M17.902 15c1.142 0 2.066.925 2.066 2.066v4.867c0 1.141-.925 2.066-2.066 2.066h-1.902v-9h1.902zm-11.836 0c-1.141 0-2.066.925-2.066 2.066v4.867c0 1.142.925 2.067 2.066 2.067h1.934v-9h-1.934zm5.934-15c-7.081 0-12 5.717-12 12.951v6.049h2v-6.085c0-6.306 5.022-9.905 10-9.915 4.978.01 10 3.609 10 9.916v6.084h2v-6.049c0-7.234-4.919-12.951-12-12.951z"/></svg>
                 </router-link>
             </div>
 
+            <!-- 播放音乐 audio标签 -->
             <audio ref="music" :src="audioSrc"></audio>        
-            <!-- <audio src="https://api.imjad.cn/cloudmusic/?type=song&id=1712252053" type="audio/mpeg"></audio>    -->
         </div>
         </Affix>
     </div>
 </template>
-<!-- import {mapState,mapGetters,mapMutations,mapActions} from 'vuex' -->
 
 <script>
     import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
@@ -69,11 +66,11 @@
                 isPlay: false,
                 realMusicTime: "00:00",
                 totalMusicTime: "00:00",
-                audioSrc: 'static/songs/AThousandYears.mp3',
+                audioSrc: 'static/songs/SilhouettesOfYou.mp3',
             };
         },
         computed:{
-            ...mapState(['audioSrcs'])
+            ...mapState(["audioSrcs","audioSrcNum","lyricsNowIndex"])
         },
         created() { },
         mounted() {
@@ -87,10 +84,7 @@
             // }, 1000);  
             },
             totalMusicTime(){
-                
-		        // console.log("监视totalMusicTime");
                 this.$store.commit("changSongT",this.totalMusicTime)
-	          
             }
         },
         methods: {
@@ -148,15 +142,19 @@
             },
             // 切换歌曲
             switchMusic() {
+                // 改变当前在播歌曲号
+                this.$store.commit("changAudioNum",(this.audioSrcNum + 1)%this.audioSrcs.length);
                 this.isPlay = false;
-                this.audioSrc = this.audioSrcs[Math.floor(Math.random() * 5)];
+                // 随机切歌
+                // this.audioSrc = this.audioSrcs[Math.floor(Math.random() * 5)];
+                // 顺序切歌
+                this.audioSrc = this.audioSrcs[this.audioSrcNum];
                 this.music.load()
                 // 文件下载完毕，如果不用等到全部下载完毕，可以用canplay事件
                 this.music.addEventListener("canplaythrough", () => {
                     this.music.play();
                     this.isPlay = true;
                 });
-
 
             },
             //使用事件监听方式捕捉事件
@@ -195,14 +193,14 @@
                 };
 
             },
-            change1() {
-                this.$refs.on.style.display = "block";
-                this.$refs.off.style.display = "none";
-            },
-            change2() {
-                this.$refs.on.style.display = "none";
-                this.$refs.off.style.display = "block";
-            }
+            // change1() {
+            //     this.$refs.on.style.display = "block";
+            //     this.$refs.off.style.display = "none";
+            // },
+            // change2() {
+            //     this.$refs.on.style.display = "none";
+            //     this.$refs.off.style.display = "block";
+            // }
         }
     };
     </script>
@@ -221,16 +219,12 @@
 
         margin: 0 auto;
         /* border-radius: 15px; */
+        /* 边缘圆角 */
         border-radius: 30px;
         position: relative;
         padding: 0px;
         box-sizing: border-box;
         overflow: hidden;
-
-        /* border-radius: 50px;
-        background: linear-gradient(225deg, #f0f0f0, #cacaca);
-        box-shadow:  -11px 11px 22px #868686,
-                    11px -11px 22px #ffffff; */
         
         &__main {
             

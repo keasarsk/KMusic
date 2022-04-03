@@ -1,277 +1,164 @@
-<!-- https://github.com/MGDGS/vue-element-ui-blog/blob/master/src/components/MusicContent.vue -->
 <template>
-    <div class="template">
-        12334678765人
-      <!-- <el-row class="banner">
-        <transition name="el-fade-in-linear">
-          <el-col :span="24" v-show="bannerShow" class="banner-img">
-            <img src="@/assets/banner/MusicBanner.jpg" />
-          </el-col>
-        </transition>
-      </el-row> -->
-      <el-row type="flex" justify="space-around" style="margin:8rem 0 2rem 0">
-        <!-- 歌曲列表 -->
-        <!-- <el-col :span="10" class="content">
-          <el-row class="list-title">
-            <el-col :span="7">歌曲</el-col>
-            <el-col :span="7">时长</el-col>
-            <el-col :span="7">歌手</el-col>
-          </el-row>
-          <el-row v-for="data in songList" :key="data.id" class="song-list">
-            <el-col :span="7">{{data.song}}</el-col>
-            <el-col :span="7">{{data.dt}}</el-col>
-            <el-col :span="7">{{data.singer}}</el-col>
-            <el-col :span="3" class="play-btn">
-              <el-row class="play-icon">
-                <el-col :span="12">
-                  <i class="el-icon-video-play" @click="playSong(data)"></i>
-                </el-col>
-                <el-col :span="12">
-                  <i class="el-icon-circle-plus-outline" @click="listAdd(data)"></i>
-                </el-col>
-              </el-row>
-            </el-col>
-          </el-row>
-          <el-row class="page">
-            <el-pagination
-                layout="prev, pager, next"
-                :total="50">
-                </el-pagination>
-          </el-row>
-        </el-col> -->
-
-        <el-col :span="13" class="content song-content">
-            <!-- 歌曲名字作者 -->
-          <!-- <el-row>
-            <el-col class="content-name">{{playContent.song}}</el-col>
-          </el-row> -->
-          <!-- <el-row>{{playContent.singer}}</el-row> -->
-
-          <!-- 歌词 -->
-          <el-row type="flex" justify="center" class="lyric-contain">
-            <el-col :span="23" class="song-lyric" :style="lyricMove">
-              <el-row
-              v-for="(item,index) in lyric"
-              :key="index"
-              :style="{'font-size': (index==currentRow ? '1.3rem':'.9rem')}"
-              class="lyric-row"
-            >{{item}}</el-row>
-            <!-- <el-row
-              v-for="(item,index) in abc"
-              :key="index"
-              :style="{'font-size': (index==currentRow ? '1.3rem':'.9rem')}"
-              class="lyric-row"
-            >{{item}}</el-row> -->
-
-              4567
-            </el-col>
-          </el-row>
-
-        </el-col>
-
-
-      </el-row>
+  <div class="root">
+    
+    <div style="float:right;">
+      {{this.$store.state.realTime}}
     </div>
-  </template>
-  
-  <script>
-    // import lyric from '../../static/songs/AThousandYears.lrc';
-  export default {
-    name: "articleContent",
+
+    <!-- ul,li装载格子滚动显示歌词 -->
+    <!-- // lyricIndex为当前歌曲播放的进度在歌词中的位置，进而改变正在播放的歌词的样式 -->
+    <ul class="lyric" ref="lyric">
+        <li :class="{each:true, choose: (index==lyricIndex)}" v-for="(item, key, index) in currentMUsicLyric" :key="key">{{item}}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+    import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
+export default {
+
     data() {
       return {
-        
-        bannerShow: false,
-        songList: [],
-        lyric: [123,234,345,3],
-        currentRow: 17,
-        lyricMove: {
-          top: "6rem"
-        },
-        abc:[1,2,3,4,5,346,346,23,345,346,53,6,6,46,26,26,6,45]
+        // 当前播放的歌词
+        lyric:"",
+        currentMUsicLyric:{},
+        //当前歌词进度
+        lyricIndex: 0,
+        // 当前歌曲进度
+        value:"0:0",
+
       };
     },
+    computed:{
+      ...mapState('lyrics',['lyrics']),
+      ...mapState(['audioSrcNum'])
+    },
+    
     methods: {
-      getSong(name) {
-        let url =
-          "https://api.imjad.cn/cloudmusic/?type=search&search_type=1&s=" +
-          name +
-          "&offset=1&limit=10";
-        this.$axios
-          .get(url)
-          .then(res => this.formatSongs(res.data.result.songs))
-          .catch();
-      },
-      //格式化歌曲列表信息
-      formatSongs(arr) {
-        let n = arr.length;
-        for (let i = 0; i < n; i++) {
-          let obj = {};
-          obj.id = arr[i].id;
-          obj.song = arr[i].name;
-          obj.singer = arr[i].ar[0].name;
-          obj.dt = this.formatDt(arr[i].dt);
-          this.songList.push(obj);
-        }
-      },
-      //格式化播放时长
-      formatDt(time) {
-        let dt = time / 1000;
-        let m = parseInt(dt / 60);
-        let s = parseInt(dt % 60);
-        m >= 10 ? m : (m = "0" + m);
-        s >= 10 ? s : (s = "0" + s);
-        return m + ":" + s;
-      },
-      //播放歌曲
-      playSong(obj) {
-        this.getLyric(obj.id);
-        this.$store.commit("setContent", obj);
-      },
-      //添加歌曲
-      listAdd(obj) {
-        this.$store.commit("addSong", obj);
-      },
-
-
-      //获取歌词信息
-    //   getLyric(id) {
-    //     // let url = "https://api.imjad.cn/cloudmusic/?type=lyric&id=" + id;
-
-
-    //     // this.lyric = "[00:21.48]Heart beats fast \n [00:24.05] \n[00:25.25]Colors and promises \n[00:29.65] \n[00:30.37]How to be brave \n[00:32.85]How can I love when I'm afraid to fall \n[00:40.32]But watching you stand alone \n"
-    //     this.lyric = "[[00:21.48]Heart beats fast \n [00:24.05] \n[00:25.25]Colors and promises \n[00:29.65] \n[00:30.37]How to be brave \n[00:32.85]How can I love when I'm afraid to fall \n[00:40.32]But watching you stand alone \n"
-    //     // this.$axios
-    //     //   .get(url)
-    //     // //   .then(res => ((this.lyric = []), this.formatLyric(res.data.lrc.lyric)))
-    //     //   .catch();
-    //     this.formatLyric(lyric)
-        
-    //   },
-      //格式化歌词
-      formatLyric(text) {
-        let arr = text.split("\n"); //分割为行
-        let row = arr.length; //歌词行数
-        for (let i = 0; i < row; i++) {
-          let temp_row = arr[i]; //let row = "[00:04.302]作曲 ：梁博";
-          let temp_arr = temp_row.split("]");
-          let text = temp_arr.pop();
-          temp_arr.forEach(element => {
-            let obj = {};
-            let time_arr = element.substr(1, element.length - 1).split(":");
-            let s = parseInt(time_arr[0]) * 60 + Math.ceil(time_arr[1]);
-            obj.time = s;
-            obj.text = text;
-            this.lyric.push(obj);
-          });
-        }
-        this.lyric.sort(this.sortRule);
-        this.$store.commit("setLyric", this.lyric);
-      },
-      sortRule(a, b) {
-        return a.time - b.time;
-      }
-    },
-    computed: {
-      playContent() {
-        this.lyricMove.top = "6rem";
-        this.getLyric(this.$store.state.playContent.id);
-        return this.$store.state.playContent;
-      },
-      lyricCurrent() {
-        return this.$store.state.current;
-      }
-    },
-    watch: {
-      lyricCurrent() {
-        this.lyric.forEach((element, index) => {
-          if (this.lyricCurrent == element.time) {
-            this.lyricMove.top = -index * 2.5 + 6 + "rem";
-            this.currentRow = index;
+      // 得到当前歌词
+      getlyric(){
+        //每秒执行一次
+        setInterval(() => {
+          // 歌词变化了就把滚动条滚到最上面
+          if (this.lyric!=this.lyrics[this.audioSrcNum]) {
+            this.$refs.lyric.scrollTop = 0;
           }
-        });
+          // 从store根据this.audioSrcNum获取当前正在播放的歌曲的歌词
+          this.lyric = this.lyrics[this.audioSrcNum];
+          // 然后调用方法对歌词进行处理
+          this.processlyric();
+
+        }, 1000);
+      },
+
+      // 得到当前歌曲播放时间AThousandYears
+      getvalue(){
+        //每秒执行一次
+        setInterval(() => {
+          let valuestr = this.$store.state.realTime
+          let m = parseInt(valuestr.split(':')[0])
+          let s = parseInt(valuestr.split(':')[1])
+          this.value = m*60 + s;
+
+          let i = 0
+          // 循环歌词对象
+          for (let key in this.currentMUsicLyric) {
+          // key表示歌词对象中的时间，如果key等于歌曲进度value，改变当前歌词进度		lyricIndex
+            if (+key == this.value+1) {
+              this.lyricIndex = i;
+              // 当歌词进度大于5，即播放到了第5句歌词，开始滚动
+              if (i > 5) {
+                  this.$refs.lyric.scrollTop = 30 * (i - 5);
+              }
+            }
+            i++;
+          }
+        }, 1000);
+      },
+
+      // 处理歌词格式
+      processlyric(){
+            // 处理歌词，转化成key为时间，value为歌词的对象
+        let lyricArr = this.lyric.split('[').slice(1); // 先以[进行分割
+        let lrcObj = {};
+        lyricArr.forEach(item => {
+            let arr = item.split(']');	// 再分割右括号
+
+            // // 时间换算成秒
+            let m = parseInt(arr[0].split(':')[0])
+            let s = parseInt(arr[0].split(':')[1])
+            arr[0] = m*60 + s;
+            // arr[0] = arr[0].slice(0,5)
+            // console.log("arr[0]",arr[0]);
+            if (arr[1] != '\n') { // 去除歌词中的换行符
+                lrcObj[arr[0]] = arr[1];
+            }
+        })
+
+        // 存储数据
+        this.currentMUsicLyric = lrcObj;
       }
     },
+
+    // 钩子函数
+    // 组件调用时就加载
     created() {
-      this.bannerShow = true;
-      window.scrollTo(0, 0);
-      this.getSong(this.$route.query.name); //加载歌曲列表
+      this.getlyric();
+      this.getvalue();
+    },
+
+    // 钩子函数
+    mounted() {
+      
     }
   };
-  </script>
   
-  <style scoped>
-  .template {
-    width: 100%;
-    background: #f2f2f2;
-  }
-  .banner {
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    filter: blur(5px);
-  }
-  .banner-img {
-    transition: 0.5s;
-  }
-  .banner-img img {
-    width: 100% !important;
-  }
-  
-  .content {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 1rem;
-    min-height: 20rem;
-  }
-  .list-title {
-    margin: 1rem;
-    border-bottom: 1px solid slategray;
-    padding-bottom: 0.5rem;
-  }
-  .song-list {
-    font-size: 0.8rem;
-    padding-bottom: 0.5rem;
-    margin: 1rem;
-    border-bottom: 1px solid slategray;
-  }
-  .play-icon {
-    font-size: 1.2rem;
-  }
-  .play-icon i:hover {
-    color: #409eff;
-  }
-  .el-pagination >>> button,
-  .el-pagination >>> li {
-    background: none;
-  }
-  .song-content {
-    max-height: 35rem;
-  }
-  
-  .content-name {
-    font-family: "KaiTi";
-    padding: 2rem 0 1rem 0;
-    font-size: 2rem;
-  }
-  .lyric-contain {
-    position: relative;
-    height: 20rem;
-    margin-top: 3rem;
-    overflow: hidden;
-  }
-  .song-lyric {
-    /* css保留空格和换行符*/
-    white-space: pre-wrap;
-    /* css保留换行符*/
-    white-space: pre-line;
-    position: absolute;
-    transition: 1s;
-  }
-  .lyric-row {
-    height: 2.5rem;
-  }
-  
-  
-  </style>
+</script>
+<style>
+.lyric {
+        width: 650px;
+        height: 500px;
+        /* position: absolute;
+        top: -312px;
+        left: 774px; */
+        /* background-color: #333; */
+        /* // 滚动条 */
+        overflow: auto;
+        color: #ddd;
+        font-size: 15px;
+        /* font-weight: normal; */
+        /* padding: 5px 10px; */
+        /* border: 1px solid #000; */
+        border-left: none;
+
+        
+}
+        .each {
+          height: 30px;
+          /* // border: 1px solid #000; */
+          line-height: 30px;
+          text-align: center;
+        }
+        .choose {
+            height: 30px;
+            line-height: 30px;
+            font-size: 23px;
+            color: rgb(0, 0, 255);
+
+        }
+        /* // 修改滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 3px;
+            height: 2px;
+        }
+        /* // 滑块部分 */
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(0, 0, 255);
+        }
+        /* // 轨道部分 */
+        ::-webkit-scrollbar-track {
+            background-color: #333;
+        }
+    
+
+</style>

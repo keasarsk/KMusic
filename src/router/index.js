@@ -21,7 +21,9 @@ import Albumme from '../views/Albumme.vue'
 
 import Author from '../views/Author.vue'
 import Images from '../views/Images.vue'
-import MassageBoard from '../views/MassageBoard.vue'
+// import MassageBoard from '../views/MassageBoard.vue'
+import MassageBoard from '../views/MassageBoardMe.vue'
+import addmessage from '../views/AddMassage.vue'
 
 
 Vue.use(Router)
@@ -33,19 +35,19 @@ export default new Router({
       path: '/',
       name: 'Content',
       component: Content,
-      redirect:'/content',
-      children:[{
-        path: '/content',
-        name: 'Content',
-        component: Content,
+      // redirect:'/content',
+      // children:[{
+      //   path: '/content',
+      //   name: 'Content',
+      //   component: Content,
       
-      }]
+      // }]
     },
-    // {
-    //   path: '/content',
-    //   name: 'Content',
-    //   component: Content,
-    // },
+    {
+      path: '/content',
+      name: 'Content',
+      component: Content,
+    },
     {
       path:'/search',
       name:'search',
@@ -129,6 +131,11 @@ export default new Router({
       path:'/albumme',
       name:'Albumme',
       component:Albumme
+    },
+    {
+      path:'/addmessage',
+      name:'addmessage',
+      component:addmessage
     },
 
   ]

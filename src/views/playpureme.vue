@@ -3,20 +3,15 @@
       
       <div>
       <div class="left">
-          <!-- leftpaddingpaddingpaddingpaddingpaddingpaddingpaddingpaddingpaddingpaddingp
-        <br>
-          <div>
-              lsflahflrfhhkrdfnh
-          </div>
-          <br> -->
           <div class="left-img">
-            <img class="content-wrapper-img" src="../../static/images/zgr1.jpg" alt="">
+            <!-- <img class="content-wrapper-img" src="static/images/zgr1.jpg" alt=""> -->
+            <img class="content-wrapper-img" :src="image" alt="">
 
           </div>
       </div>
+      <!-- 右半边歌词 用组件playlyricme实现 -->
       <div class="right">
         <playlricyme></playlricyme>
-        <!-- <test></test> -->
         
       </div>
     </div>
@@ -25,20 +20,36 @@
 </template>
 
 <script>
-import playlricyme from "./playlricyme2.vue";
+import playlricyme from "./playlricyme.vue";
 import test from "./test.vue";
+import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
   export default {
     data() {
       return {
-
+        image:"static/images/songImages/MerryChristmasMe.jpg"
       };
     },
+    computed:{
+      ...mapState('images',['images']),
+      ...mapState(['audioSrcNum'])
+
+    },
     methods: {
-      
+      // 换图片
+      getImage(){
+          //每秒执行一次 进行检测
+        setInterval(() => {
+          // 从store根据this.audioSrcNum获取当前正在播放的歌曲的图片
+          this.image = this.images[this.audioSrcNum];
+        }, 1000);
+      }
     },
     components: {
         playlricyme,
         test
+    },
+    created() {
+      this.getImage();
     },
   };
 </script>

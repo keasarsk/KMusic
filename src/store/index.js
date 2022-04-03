@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from "vuex-persistedstate"
+import images from './images'
+import lyrics from './lyrics'
 // import songinfo from './songinfo'
 
 Vue.use(Vuex)
@@ -12,15 +14,13 @@ export default new Vuex.Store({
   })],
 
   state:{
-    // songName:'葡萄成熟时',
-    // songAuthor:'陈奕迅',
     // 歌曲总时长
     songTime:"0:0",
     // 当前歌曲时间
     realTime:"0:0",
-    // 歌词文件
-    songLyric:"",
+    // 歌曲列表
     audioSrcs:[
+        'static/songs/SilhouettesOfYou.mp3',
         'static/songs/AThousandYears.mp3',
         'static/songs/MerryChristmasMe.m4a',
         'static/songs/Paradise…HowFar.mp3',
@@ -28,40 +28,34 @@ export default new Vuex.Store({
         'static/songs/葡萄成熟时.mp3'
         // 想使用网易云api得先下载服务
         // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
-        // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
-        // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
-        // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
-        // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
     ],
+    // 当前歌曲序号
+    audioSrcNum:0,
+
 },
   //mutations用于修改state
   //Async 异步
   mutations: {
-    // addsong(state, adds) {
-    //   state.audioInfo.push({
-    //     name: adds.amount1,
-    //     artist: adds.amount2,
-    //     url: adds.amount3,
-    //     cover: adds.amount4,
-    //     lrc: adds.amount5,
-    //   })
-    // },
+    // 改变歌曲总时间
     changSongT(state,value){
-      // console.log('changSongTime被')
       state.songTime = value
-      // this.songCurrectTime = value2
     },
+    // 改变歌曲当前时间
     changSongC(state,value){
-      // console.log('changSongC被')
       state.realTime = value
-      // this.songCurrectTime = value2
-    }
+    },
+    // 改变当前歌曲序号
+    changAudioNum(state,value){
+      state.audioSrcNum = value
+    },
+
   },
-  //actions专门用来做异步处理
   actions: {
 
   },
   modules:{
     // songInfo:songinfo
+    lyrics:lyrics,
+    images:images
   }
 })

@@ -14,6 +14,7 @@
     "@moefe/vue-aplayer": "^2.0.0-beta.5",
     "axios": "^0.25.0",
     "element-ui": "^2.15.6",
+    "jquery": "^3.6.0",
     "lyric-parser": "^1.0.1",
     "view-design": "^4.7.0",
     "vue": "^2.5.2",

@@ -88,9 +88,171 @@ export default {
             [04:07.43]I'll love you for a thousand more",
 
             "[04:01.16]纯音乐~[04:06.53]",
-            "[04:01.16]Paradise…HowFar [04:06.53]",
-            "[04:01.16]TheScientist[04:06.53]",
-            "[04:01.16]葡萄成熟时[04:06.53]",
+            "[ti:Paradise... How Far?]\
+            [ar:���Ә��F]\
+            [al:Paradise... How Far?]\
+            [by:]\
+            [offset:0]\
+            [00:00.00]Paradise... How Far? - �������� The Chairs\
+            [00:05.69]�ʣ���ӽ��\
+            [00:11.39]������ӽ��\
+            [00:17.09]Lie down by my side\
+            [00:21.20]Beneath the perfect sunshine\
+            [00:25.64]And the bluest sky\
+            [00:30.63]Will throw us back to the time\
+            [00:34.26]Like one of those lovely nights\
+            [00:38.86]In the diamond starlight\
+            [00:42.94]How crazy years have flied\
+            [00:47.86]Oh how far are we to paradise\
+            [00:53.55]Life's been fairly easy guess I shouldn't cry\
+            [01:01.68]Yet sometimes\
+            [01:05.71]It's hard to say I'm fine\
+            [01:10.19]The moment that I wait on is like one with you now\
+            [01:18.00]Tender is the smile\
+            [01:22.30]I'll write it in my song\
+            [01:26.69]So stay here by my side\
+            [01:30.87]Beneath the perfect sunshine\
+            [01:35.56]And the bluest sky\
+            [01:40.33]Will throw us back to the time\
+            [01:44.01]Like one of those lonely nights\
+            [01:48.65]In the diamond spotlight\
+            [01:52.70]How crazy years have flied\
+            [01:57.71]Oh how far are we to paradise\
+            [02:07.57]I always felt like a misfit guess I didn't try\
+            [02:15.35]You say it's alright\
+            [02:19.76]We're all alone sometimes\
+            [02:24.46]I don't deserve a moment like one with you now\
+            [02:32.13]But how can it be wrong\
+            [02:36.37]I'll write it in my song\
+            [02:42.83]So stay here by my side\
+            [02:47.29]Beneath the perfect sunshine\
+            [02:51.82]And the bluest sky\
+            [02:56.91]Will throw us back to the time\
+            [03:00.50]Like one of those lonely nights\
+            [03:05.00]In the diamond spotlight\
+            [03:09.20]How crazy years have flied\
+            [03:14.00]Oh how far are we to paradise",
+
+            "[ti:The Scientist (Live)]\
+            [ar:Coldplay]\
+            [al:Special Live CD]\
+            [by:]\
+            [offset:0]\
+            [00:00.00]The Scientist (Live) - Coldplay (�����ֶ�)\
+            [00:14.11]Written by��Chris Martin/Guy Berryman/Jon Buckland/Jonny Buckland/Will Champion/Audrey Riley/Coldplay\
+            [00:28.22]Come up to meet you\
+            [00:30.63]\
+            [00:31.25]Tell you I'm sorry\
+            [00:33.80]\
+            [00:34.46]You don't know how lovely you are\
+            [00:39.81]\
+            [00:41.32]I had to find you\
+            [00:43.73]\
+            [00:44.41]Tell you I need you\
+            [00:47.02]\
+            [00:47.69]Tell you I set you apart\
+            [00:53.38]\
+            [00:54.23]Tell me your secrets\
+            [00:56.87]\
+            [00:57.58]And ask me your questions\
+            [01:00.71]Oh let's go back to the start\
+            [01:06.54]\
+            [01:07.46]Running in circles\
+            [01:10.15]\
+            [01:10.68]Coming up tails\
+            [01:13.90]Heads on a science apart\
+            [01:19.44]\
+            [01:20.36]Nobody said it was easy\
+            [01:25.22]\
+            [01:26.77]It's such a shame for us to part\
+            [01:32.46]\
+            [01:33.34]Nobody said it was easy\
+            [01:38.41]\
+            [01:39.77]No one ever said it would be this hard\
+            [01:45.84]\
+            [01:48.97]I'm going back to the start\
+            [01:52.45]\
+            [02:19.61]I was just guessing\
+            [02:21.76]\
+            [02:22.88]At numbers and figures\
+            [02:25.94]Pulling your puzzles apart\
+            [02:31.13]\
+            [02:32.45]Questions of science\
+            [02:35.22]\
+            [02:35.73]Science and progress\
+            [02:38.43]\
+            [02:38.96]Do not speak as loud as my heart\
+            [02:44.91]\
+            [02:45.51]Tell me you love me\
+            [02:48.14]\
+            [02:48.89]Come back and haunt me\
+            [02:51.96]Oh and I rush to the start\
+            [02:57.49]\
+            [02:58.69]Running in circles\
+            [03:02.02]Chasing our tails\
+            [03:05.25]Coming back as we are\
+            [03:11.73]Nobody said it was easy\
+            [03:16.80]\
+            [03:18.23]Oh it's such a shame for us to part\
+            [03:23.96]\
+            [03:24.48]Nobody said it was easy\
+            [03:29.84]\
+            [03:31.31]No one ever said it would be so hard\
+            [03:37.50]\
+            [03:40.36]Oh take me back to the start",
+
+            "[ti:葡萄成熟时]\
+            [ar:陈奕迅]\
+            [al:U 87]\
+            [by:]\
+            [offset:0]\
+            [00:00.91]葡萄成熟时 - U 87 - 陈奕迅\
+            [00:03.60]作词： 黄伟文 作曲： Vincent Chow、Anfernee Cheung\
+            [00:16.14]差不多冬至一早一晚还是有雨\
+            [00:20.10]当初的坚持现已令你很怀疑\
+            [00:25.77]很怀疑你最尾等到只有这枯枝\
+            [00:31.85]苦恋几多次悉心栽种全力灌注\
+            [00:35.66]所得竟不如别个后辈收成时\
+            [00:41.01]这一次你真的很介意\
+            [00:46.14]但见旁人谈情何引诱\
+            [00:50.24]问到何时葡萄先熟透\
+            [00:54.63]你要静候再静候\
+            [00:58.25]就算失收始终要守\
+            [01:03.55]日后尽量别教今天的泪白流\
+            [01:10.28]留低击伤你的石头\
+            [01:14.11]从错误里吸收\
+            [01:18.05]也许丰收月份尚未到你也得接受\
+            [01:24.92]或者要到你将爱酿成醇酒\
+            [01:31.32]时机先至熟透\
+            [01:49.18]应该怎么爱可惜书里从没记载\
+            [01:53.11]终于摸出来但岁月却不回来\
+            [01:58.27]不回来错过了春天可会再花开\
+            [02:04.67]一千种恋爱一些需要情泪灌溉\
+            [02:08.22]枯毁的温柔\
+            [02:09.94]在最后会长回来\
+            [02:13.82]错的爱乃必经的配菜\
+            [02:18.66]但见旁人谈情何引诱\
+            [02:22.78]问到何时葡萄先熟透\
+            [02:26.81]你要静候再静候\
+            [02:30.66]就算失收始终要守\
+            [02:35.44]日后尽量别教今天的泪白流\
+            [02:42.04]留低击伤你的石头\
+            [02:45.84]从错误里吸收\
+            [02:49.48]也许丰收月份尚未到你也得接受\
+            [02:56.75]或者要到你将爱酿成醇酒\
+            [03:02.99]时机先至熟透\
+            [03:09.63]想想天的一边亦有个某某在等候\
+            [03:20.33]wo wo wo yeah yeah~~\
+            [03:24.60]一心只等葡萄熟透\
+            [03:30.59]尝杯酒wo wowow\
+            [03:39.77]别让寂寞害你伤得一夜白头\
+            [03:46.40]仍得不需要的自由\
+            [03:50.45]和最耀眼伤口\
+            [03:53.83]我知日后路上或没有更美的邂逅\
+            [04:01.02]但当你智慧都蕴酿成红酒\
+            [04:07.47]仍可一醉自救\
+            [04:13.27]谁都辛酸过\
+            [04:20.44]哪个没有",
 
         ],
         

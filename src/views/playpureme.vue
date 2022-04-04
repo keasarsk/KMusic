@@ -26,7 +26,7 @@ import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
   export default {
     data() {
       return {
-        image:"static/images/songImages/MerryChristmasMe.jpg"
+        image:"static/images/songImages/SilhouettesOfYou.jpg"
       };
     },
     computed:{

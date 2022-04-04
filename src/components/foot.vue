@@ -1,6 +1,8 @@
 <template>
+<div>
     <div class="music">
-        <Affix :offset-bottom="20">
+    <Affix offset-bottom="15">
+
             <div class="music__mask"></div>
 
         <div>
@@ -53,8 +55,11 @@
             <!-- 播放音乐 audio标签 -->
             <audio ref="music" :src="audioSrc"></audio>        
         </div>
-        </Affix>
+    </Affix>
+
     </div>
+</div>
+    
 </template>
 
 <script>

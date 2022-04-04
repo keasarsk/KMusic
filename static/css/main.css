@@ -138,14 +138,20 @@ body.light-mode .video-bg:before {
 }
 
 .app {
-    background-color: var(--theme-bg-color);
-    min-width: 700px;
-    max-height: 880px;
-    height: 99vh;
+    /* min-width: 700px; */
+    /* max-height: 880px; */
+    position: fixed;
+    right: 1%;
+    top: 1%;
+
+    height: 98vh;
+    width: 98vw;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-radius: 14px;
+
+    background-color: var(--theme-bg-color);
+    border-radius: 15px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     font-size: 15px;

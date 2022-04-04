@@ -1,13 +1,15 @@
 <template>
+<div>
   <div id="app">
    <Backround></Backround>
     <Top></Top>
-    <!-- <aplayer></aplayer> -->
-    <foot></foot>
-    <!-- <foot2></foot2> -->
-    <!-- <vab></vab> -->
+    
 
+    <!-- <aplayer></aplayer> -->
   </div>
+  <foot></foot>
+</div>
+  
 </template>
 
 <script>
@@ -26,7 +28,6 @@ export default {
     Top,
     Backround,
     // aplayer,
-    // vab,
     foot,
     // foot2
   },

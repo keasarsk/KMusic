@@ -271,12 +271,12 @@
                     justify-content: space-between;
                     color: #fff;
                     span {
-                        font-size: 15px;
+                        font-size: 12px;
                         line-height: 1;
                     }
                 }
                 .bar {
-                    height: 5px;
+                    height: 7px;
                     background-color: #fbfbfb;
                     border-radius: 8px;
                     position: relative;
@@ -341,14 +341,14 @@
             }
         }
         &__mask {
-            background-image: url('../assets/green.jpg');
+            background-image: url('../../static/images/contentbg.jpg');
             z-index: -2;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50%;
             border-radius: 30px;
             filter: blur(-1px);
-            opacity:0.8;
+            opacity:0.7;
             transition: all 0.8s;
             position: absolute;
             top: -11px;

@@ -10,10 +10,11 @@
                 <router-link to="#" active-class="is-active">分类</router-link>
             </div>
         </div> -->
-        <div>
+        <!-- <div>
             
-        </div>
+        </div> -->
         <div class="content-wrapper">
+            
             <div class="content-wrapper-header">
                 <div class="content-wrapper-header-padding">
                     <div class="content-wrapper-context">
@@ -35,16 +36,22 @@
 
 
             <div class="content-section">
-                <div class="content-section-title">最新歌曲</div>
+                <div class="content-section-title">推荐歌曲</div>
                 <ul class="search_ul">
                     <li class="adobe-product" v-for="item in newmusic">
+
+                        <!-- 歌名 -->
                         <div class="products">{{item.song.album.name}}</div>
+                        <!-- 作者 -->
                         <span class="status">
                             <span class="status-circle green"></span> {{item.song.artists[0].name}}</span>
-                        <!-- 歌曲时间 -->
+                        <!-- 时长 -->
                         <span class="status">{{item.song.duration}}</span>
+                        备注
                         <span class="status">{{item.song.alias[0]}}</span>
                         <div class="button-wrapper">
+
+                            <!-- 播放音乐 -->
                             <div class="clicksvg" @click="playMusic(item.id)">
                                 <svg t="1639295337775" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" p-id="2313" width="40" height="40">
@@ -56,15 +63,19 @@
                                         p-id="2315" fill="#e6e6e6"></path>
                                 </svg>
                             </div>
-                            <div class="clicksvg" v-if="item.song.mvid!=0" @click="playMV(item.song.mvid,item.id)">
+
+                            <!-- 播放MV -->
+                            <!-- <div class="clicksvg" v-if="item.song.mvid!=0" @click="playMV(item.song.mvid,item.id)">
                                 <svg t="1639296179055" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" p-id="3387" width="40" height="40">
                                     <path
                                         d="M0 76.8h158.72v125.952H0V76.8z m209.92 0v870.4h606.208v-870.4H209.92z m147.456 193.536c5.12 0 10.24 1.024 14.336 4.096l153.6 108.544 153.6 108.544c12.288 8.192 15.36 26.624 8.192 39.936-2.048 4.096-5.12 7.168-8.192 9.216l-153.6 108.544-153.6 108.544c-12.288 8.192-27.648 4.096-34.816-9.216-3.072-5.12-4.096-10.24-4.096-15.36V299.008c0-15.36 10.24-27.648 24.576-28.672zM868.352 76.8H1024v125.952H868.352V76.8zM0 260.096h158.72V389.12H0V260.096z m868.352 0H1024V389.12H868.352V260.096zM0 447.488h158.72v129.024H0V447.488z m868.352 0H1024v129.024H868.352V447.488zM0 633.856h158.72v129.024H0V633.856z m868.352 0H1024v129.024H868.352V633.856zM0 820.224h158.72v125.952H0V820.224z m868.352 0H1024v125.952H868.352V820.224z"
                                         fill="#e6e6e6" p-id="3388"></path>
                                 </svg>
-                            </div>
-                            <div class="clicksvg" @click="DownloadSong(item.id)">
+                            </div> -->
+
+                            <!-- 下载按钮 -->
+                            <!-- <div class="clicksvg" @click="DownloadSong(item.id)">
                                 <a :href="DownloadSongUrl" target="_blank" download>
                                     <svg t="1639296939929" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" p-id="4288" width="40" height="40">
@@ -76,7 +87,8 @@
                                             fill="#e6e6e6" p-id="4290"></path>
                                     </svg>
                                 </a>
-                            </div>
+                            </div> -->
+
                         </div>
                     </li>
                 </ul>

@@ -71,11 +71,11 @@
                 isPlay: false,
                 realMusicTime: "00:00",
                 totalMusicTime: "00:00",
-                audioSrc: 'static/songs/SilhouettesOfYou.mp3',
+                audioSrc: 'static/songs/葡萄成熟时.mp3',
             };
         },
         computed:{
-            ...mapState(["audioSrcs","audioSrcNum","lyricsNowIndex"])
+            ...mapState(["audioSrcs","audioSrcNum"])
         },
         created() { },
         mounted() {
@@ -149,6 +149,11 @@
             switchMusic() {
                 // 改变当前在播歌曲号
                 this.$store.commit("changAudioNum",(this.audioSrcNum + 1)%this.audioSrcs.length);
+                var num = this.audioSrcNum
+                var audioSrcsNameCom = this.audioSrcs[num]
+                var audioSrcsName = audioSrcsNameCom.slice(13,-4)
+                // var audioSrcsName = Object.keys(this.audioSrcs)[num]
+                this.$store.commit("changAudioName",audioSrcsName);
                 this.isPlay = false;
                 // 随机切歌
                 // this.audioSrc = this.audioSrcs[Math.floor(Math.random() * 5)];

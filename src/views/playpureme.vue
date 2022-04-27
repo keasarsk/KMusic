@@ -26,12 +26,12 @@ import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
   export default {
     data() {
       return {
-        image:"static/images/songImages/SilhouettesOfYou.jpg"
+        image:"static/images/songImages/葡萄成熟时.jpg"
       };
     },
     computed:{
       ...mapState('images',['images']),
-      ...mapState(['audioSrcNum'])
+      ...mapState(['audioSrcNum','audioSrcName'])
 
     },
     methods: {
@@ -39,8 +39,15 @@ import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
       getImage(){
           //每秒执行一次 进行检测
         setInterval(() => {
+
           // 从store根据this.audioSrcNum获取当前正在播放的歌曲的图片
-          this.image = this.images[this.audioSrcNum];
+          // this.image = this.images[this.audioSrcNum];
+          if (this.images[this.audioSrcName]){
+            this.image = this.images[this.audioSrcName];
+          }
+          else {
+            this.image = "static/images/songImages/zgr2.jpg"
+          }
         }, 1000);
       }
     },

@@ -20,17 +20,35 @@ export default new Vuex.Store({
     realTime:"0:0",
     // 歌曲列表
     audioSrcs:[
-        'static/songs/SilhouettesOfYou.mp3',
-        'static/songs/AThousandYears.mp3',
-        'static/songs/MerryChristmasMe.m4a',
-        'static/songs/Paradise…HowFar.mp3',
-        'static/songs/TheScientist.m4a',
-        'static/songs/葡萄成熟时.mp3'
-        // 想使用网易云api得先下载服务
-        // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
+      'static/songs/1874.mp3',
+      'static/songs/白玫瑰.mp3',
+      'static/songs/不能说的秘密.mp3',
+      'static/songs/不要说话.mp3',
+      'static/songs/李香兰.mp3',
+      'static/songs/路小雨.mp3',
+      'static/songs/葡萄成熟时.mp3',
+      'static/songs/是但求其爱.mp3',
+      'static/songs/唯一.mp3',
+      'static/songs/我.mp3',
+      'static/songs/无条件.mp3',
+      'static/songs/消愁.mp3',
+      'static/songs/一生所爱.mp3',
+      'static/songs/以父之名.mp3',
+      'static/songs/月半小夜曲.mp3',
+      'static/songs/AThousandYears.mp3',
+      'static/songs/MerryChristmasMe.m4a',
+      'static/songs/ParadiseHowFar.mp3',
+      'static/songs/SilhouettesOfYou.mp3',
+      'static/songs/TheScientist.m4a',
+
+      // 想使用网易云api得先下载服务
+      // 'https://api.imjad.cn/cloudmusic/?type=song&id=1712252053',
     ],
     // 当前歌曲序号
     audioSrcNum:0,
+
+    // 当前歌曲名
+    audioSrcName:"葡萄成熟时"
 
 },
   //mutations用于修改state
@@ -47,6 +65,10 @@ export default new Vuex.Store({
     // 改变当前歌曲序号
     changAudioNum(state,value){
       state.audioSrcNum = value
+    },
+    // 
+    changAudioName(state,value){
+      state.audioSrcName = value
     },
 
   },

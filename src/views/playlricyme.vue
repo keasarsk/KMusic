@@ -30,8 +30,8 @@ export default {
       };
     },
     computed:{
-      ...mapState('lyrics',['lyrics']),
-      ...mapState(['audioSrcNum'])
+      ...mapState('lyrics',['lyrickey']),
+      ...mapState(['audioSrcs','audioSrcNum','audioSrcName'])
     },
     
     methods: {
@@ -39,19 +39,38 @@ export default {
       getlyric(){
         //每秒执行一次
         setInterval(() => {
-          // 歌词变化了就把滚动条滚到最上面
-          if (this.lyric!=this.lyrics[this.audioSrcNum]) {
+
+          console.log("this.audioSrcName",this.audioSrcName);
+
+          // 歌词变化了
+          if (this.lyric!=this.lyrickey[this.audioSrcName]) {
+            // 就把滚动条滚到最上面
             this.$refs.lyric.scrollTop = 0;
+
+            // if (this.audioSrcName in this.lyrickey){
+            if (this.lyrickey.hasOwnProperty(this.audioSrcName)){
+              
+              // 从store根据this.audioSrcNum获取当前正在播放的歌曲的歌词
+              // this.lyric = this.lyrics[this.audioSrcNum];
+              this.lyric = this.lyrickey[this.audioSrcName];
+              // 然后调用方法对歌词进行处理
+              this.processlyric();
+            }
+            else{
+              this.lyric = "[00:00.16]"+ this.audioSrcName + "[00:10.16][04:01.16]Enjoy~[04:06.53]"
+              this.processlyric();
+            }
+
           }
-          // 从store根据this.audioSrcNum获取当前正在播放的歌曲的歌词
-          this.lyric = this.lyrics[this.audioSrcNum];
-          // 然后调用方法对歌词进行处理
-          this.processlyric();
+          console.log("this.lyrickey[this.audioSrcName]",this.lyrickey[this.audioSrcName]);
+
+          
+          
 
         }, 1000);
       },
 
-      // 得到当前歌曲播放时间AThousandYears
+      // 得到当前歌曲播放时间
       getvalue(){
         //每秒执行一次
         setInterval(() => {

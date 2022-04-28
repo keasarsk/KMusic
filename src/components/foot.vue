@@ -72,34 +72,64 @@
                 realMusicTime: "00:00",
                 totalMusicTime: "00:00",
                 audioSrc: 'static/songs/葡萄成熟时.mp3',
+
+                audioNum: 6
+
             };
         },
         computed:{
-            ...mapState(["audioSrcs","audioSrcNum"])
+            ...mapState(["audioSrcs","audioSrcNum","audioPlayState"])
         },
         created() { },
         mounted() {
             this.watchMusicTime();
+            this.watchPlayState();
+            this.watchaudioSrcStore();
         },
         watch:{
             realMusicTime(){
-                // setTimeout(() => {
-                // console.log("监视realMusicTime");
                 this.$store.commit("changSongC",this.realMusicTime)
-            // }, 1000);  
             },
             totalMusicTime(){
                 this.$store.commit("changSongT",this.totalMusicTime)
-            }
+            },
+
         },
         methods: {
+            // 其他地方点击播放
+            watchPlayState(){
+                //每秒执行一次 进行监视store中的播放状态
+                setInterval(() => {
+                    // console.log('foot this.audioPlayState',this.audioPlayState);
+                    if (this.isPlay != this.audioPlayState){
+                        this.play();
+                    }
+                }, 1000);
+            },
+            // 其他地方切歌
+            watchaudioSrcStore(){
+                setInterval(() => {
+                    // 根据audioSrcNum切歌
+                    if (this.audioNum != this.audioSrcNum){
+                        this.audioNum = this.audioSrcNum
+                        this.audioSrc = this.audioSrcs[this.audioSrcNum];
+                        this.music.load()
+                        this.music.addEventListener("canplaythrough", () => {
+                            this.music.play();
+                            this.isPlay = true;
+                        }); 
+                    }
+                }, 1000);
+            },
             play() {
                 if (this.music.paused) {
                     this.music.play();
                     this.isPlay = true;
+                    this.$store.commit("changaudioPlayStateT",1)
                 } else {
                     this.music.pause();
                     this.isPlay = false;
+                    this.$store.commit("changaudioPlayStateF",1)
                 }
             },
             // switchIcon(){
@@ -150,7 +180,9 @@
                 // 改变当前在播歌曲号
                 this.$store.commit("changAudioNum",(this.audioSrcNum + 1)%this.audioSrcs.length);
                 var num = this.audioSrcNum
+                // 获得歌曲路径
                 var audioSrcsNameCom = this.audioSrcs[num]
+                // 获得歌曲名
                 var audioSrcsName = audioSrcsNameCom.slice(13,-4)
                 // var audioSrcsName = Object.keys(this.audioSrcs)[num]
                 this.$store.commit("changAudioName",audioSrcsName);

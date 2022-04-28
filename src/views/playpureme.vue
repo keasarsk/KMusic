@@ -26,7 +26,8 @@ import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
   export default {
     data() {
       return {
-        image:"static/images/songImages/葡萄成熟时.jpg"
+        // image:"static/images/songImages/葡萄成熟时.jpg"
+        image:""
       };
     },
     computed:{

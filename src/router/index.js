@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Content from '../views/Content.vue'
+// import Content from '../views/Content.vue'
+import Content from '../views/ContentMe.vue'
 // import playpure from '../views/Article.vue'
 import playpure from '../views/playpureme.vue'
 import search from '../views/SongSearch.vue'

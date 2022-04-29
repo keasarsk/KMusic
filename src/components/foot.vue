@@ -37,7 +37,7 @@
             </div>
             <!-- 上一曲 -->
             <div class="music__btn2">
-                <i @click="switchMusic">
+                <i @click="switchMusicLast">
                     <svg width="23" height="27" viewBox="0 0 23 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8896 23.7417C19.6365 24.9935 22.0673 23.7449 22.0673 21.5958V5.40423C22.0673 3.25511 19.6365 2.0065 17.8896 3.25828L6.59146 11.3541C5.12173 12.4072 5.12173 14.5928 6.59147 15.6459L17.8896 23.7417Z" fill="#AFB5C0"/>
                         <rect y="4.26471" width="2" height="18" fill="#AFB5C0"/></svg>
@@ -197,7 +197,28 @@
                     this.music.play();
                     this.isPlay = true;
                 });
-
+            },
+            switchMusicLast() {
+                // 改变当前在播歌曲号
+                this.$store.commit("changAudioNum",(this.audioSrcNum - 1)%this.audioSrcs.length);
+                var num = this.audioSrcNum
+                // 获得歌曲路径
+                var audioSrcsNameCom = this.audioSrcs[num]
+                // 获得歌曲名
+                var audioSrcsName = audioSrcsNameCom.slice(13,-4)
+                // var audioSrcsName = Object.keys(this.audioSrcs)[num]
+                this.$store.commit("changAudioName",audioSrcsName);
+                this.isPlay = false;
+                // 随机切歌
+                // this.audioSrc = this.audioSrcs[Math.floor(Math.random() * 5)];
+                // 顺序切歌
+                this.audioSrc = this.audioSrcs[this.audioSrcNum];
+                this.music.load()
+                // 文件下载完毕，如果不用等到全部下载完毕，可以用canplay事件
+                this.music.addEventListener("canplaythrough", () => {
+                    this.music.play();
+                    this.isPlay = true;
+                });
             },
             //使用事件监听方式捕捉事件
             watchMusicTime() {

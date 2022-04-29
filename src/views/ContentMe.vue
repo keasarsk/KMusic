@@ -7,7 +7,7 @@
                 <div class="content-wrapper-header-padding">
                     <div class="content-wrapper-context">
                         <h3 class="img-content" style="text-indent: 2em; ">
-                            在我们的有生之年，从事自己热爱的事业，和自己喜欢的人在一起，大概就是活着的意义。
+                            在我们的有生之年，从事自己热爱的事业，和自己喜欢的人在一起，偶尔做些喜欢的事，大概就是活着的意义。
                         </h3>
                         
                         <div class="content-text" style="position:relative; left:300px;">
@@ -62,8 +62,7 @@
             </div>
 
             <div class="content-section">
-
-                <div class="content-section-title">热门歌单</div>
+                <div class="content-section-title">歌单</div>
                 <div class="apps-card">
                     <div class="block" v-for="item in indexsonglist" @click="openplaylist(item.id)">
                         <el-image class="songlistimg app-card" :src="item.coverImgUrl"></el-image>

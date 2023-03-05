@@ -16,9 +16,6 @@ import singerlist from '../views/singerlist.vue'
 import album from '../views/album.vue'
 import Article from '../views/ArticleMe.vue'
 import Albumme from '../views/Albumme.vue'
-// import Article from '../components/playpure.vue'
-// import Article from '../views/Content1.vue'
-
 
 import Author from '../views/Author.vue'
 import Images from '../views/Images.vue'
@@ -26,6 +23,18 @@ import Images from '../views/Images.vue'
 import MassageBoard from '../views/MassageBoardMe.vue'
 import addmessage from '../views/AddMassage.vue'
 
+import Test from '../views/test.vue'
+
+import Science from '../views/LifeContext/Film/Science.vue'
+import Cartoon from '../views/LifeContext/Film/Cartoon.vue'
+import Comedy from '../views/LifeContext/Film/Comedy.vue'
+import Love from '../views/LifeContext/Film/Love.vue'
+
+import Anime from '../views/LifeContext/Tele/Anime.vue'
+import Common from '../views/LifeContext/Tele/Common.vue'
+import History from '../views/LifeContext/Tele/History.vue'
+
+import Literary from '../views/LifeContext/Books/Literary.vue'
 
 Vue.use(Router)
 
@@ -34,7 +43,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Content',
+      name: 'ContentMe',
       component: Content,
       // redirect:'/content',
       // children:[{
@@ -48,6 +57,51 @@ export default new Router({
       path: '/content',
       name: 'Content',
       component: Content,
+    },
+    {
+      path: '/cartoon',
+      name: 'Cartoon',
+      component: Cartoon,
+    },
+    {
+      path: '/comedy',
+      name: 'Comedy',
+      component: Comedy,
+    },
+    {
+      path: '/content',
+      name: 'Content',
+      component: Content,
+    },
+    {
+      path: '/love',
+      name: 'Love',
+      component: Love,
+    },
+    {
+      path: '/anime',
+      name: 'Anime',
+      component: Anime,
+    },
+    {
+      path: '/common',
+      name: 'Common',
+      component: Common,
+    },
+    {
+      path: '/history',
+      name: 'History',
+      component: History,
+    },
+    {
+      path: '/literary',
+      name: 'Literary',
+      component: Literary,
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test,
     },
     {
       path:'/search',
@@ -104,9 +158,13 @@ export default new Router({
 
     {
       path:'/article',
-      name:'article',
-      component:Article
-
+      name:'Article',
+      component:Article,
+    },
+    {
+      path: '/science',
+      name: 'Science',
+      component:Science,
     },
     {
       path:'/images',

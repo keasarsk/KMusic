@@ -1,18 +1,7 @@
 <template lang="">
+
     <div class="main-container">
-        <!-- <div class="main-header">
-            <a class="menu-link-main" href="#">每日推荐</a>
-            
-            <div class="header-menu">
-                <router-link to="/" active-class="is-active">专辑</router-link>
-                <router-link to="/Leaderboard" active-class="is-active">排行榜</router-link>
-                <router-link to="/singerlist" active-class="is-active">歌手</router-link>
-                <router-link to="#" active-class="is-active">分类</router-link>
-            </div>
-        </div> -->
-        <!-- <div>
-            
-        </div> -->
+
         <div class="content-wrapper">
             
             <div class="content-wrapper-header">
@@ -113,6 +102,7 @@
             </div>
         </div>
     </div>
+       
     </div>
 </template>
 <script>

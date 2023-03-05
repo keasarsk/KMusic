@@ -1,6 +1,7 @@
 <template lang="">
     <div class="main-container">
         <div class="main-header">
+        <!-- <div class="left-side"> -->
             <a class="menu-link-main" href="#">二次元</a>
             <div class="header-menu">
                 <a class="main-header-link" href="#">专辑</a>

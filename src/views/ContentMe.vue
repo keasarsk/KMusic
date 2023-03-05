@@ -1,7 +1,7 @@
 <template lang="">
     <div class="main-container">
 
-        <div class="content-wrapper">
+      <div class="content-wrapper">
             
             <div class="content-wrapper-header">
                 <div class="content-wrapper-header-padding">
@@ -25,7 +25,7 @@
 
 
             <div class="content-section">
-                <div class="content-section-title">推荐歌曲</div>
+                <div class="content-section-title">歌曲列表</div>
                 <ul class="search_ul">
                     <!-- <li class="adobe-product" v-for="item in newmusic"> -->
                     <li class="adobe-product" v-for="(val,key,item) in audioSrcAuthorName" >
@@ -61,7 +61,7 @@
                 </ul>
             </div>
 
-            <div class="content-section">
+            <!-- <div class="content-section">
                 <div class="content-section-title">歌单</div>
                 <div class="apps-card">
                     <div class="block" v-for="item in indexsonglist" @click="openplaylist(item.id)">
@@ -69,122 +69,120 @@
                         <h5 class="songlisttext">{{item.name}}</h5>
                     </div>
                 </div>
-                <!-- //分页 -->
+                //分页
                 <div class="block">
                     <el-pagination v-if="count!=0" @current-change="handleCurrentChange"
                         :current-page.sync="currentPage" :page-size="10" layout="prev, pager, next, jumper"
                         :total="count" :background="true">
                     </el-pagination>
                 </div>
-            </div>
+            </div> -->
         </div>
-    </div>
+      </div>
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-    import { playMusicApi, getLyricApi, getdetailApi, getsongList, getnewmusic } from '../request/api.js'
+import { mapState } from "vuex";
+import {
+  playMusicApi,
+  getLyricApi,
+  getdetailApi,
+  getsongList,
+  getnewmusic,
+} from "../request/api.js";
 
-
-    export default {
-        data() {
-            return {
-
-                //歌单数据
-                indexsonglist: [],
-                //初始页
-                currentPage: 1,
-                count: "",
-                //新歌曲推荐
-                newmusic: [],
-                // 歌曲数组
-                musicList: [],
-                // 歌曲地址
-                musicUrl: "",
-                DownloadSongUrl: "",
-                activeName: 'second',
-                //音乐地址
-                songurladd: null,
-                //歌词
-                songlrc: "",
-            }
-        },
-        computed:{
-            ...mapState(['audioSrcAuthorName','audioPlayState','audioSrcName'])
-        },
-        created() {
-
-            this.showsongList();
-            this.newmusicc();
-        },
-        methods: {
-            //分页
-            handleCurrentChange: function (currentPage) {
-                // console.log(`当前页: ${currentPage}`);
-                this.currentPage = currentPage;
-                // console.log(this.currentPage)
-                this.showsongList(currentPage)
-            },
-            //获取歌单
-            showsongList(page = 1) {
-                getsongList({
-                    limit: 15,
-                    offset: (page - 1) * 15
-                }).then(res => {
-                    this.indexsonglist = res.data.playlists;
-                    this.count = res.data.total;
-                    // console.log(this.count)
-                    // console.log(this.indexsonglist)
-                })
-            },
-            //新歌推荐
-            newmusicc() {
-                getnewmusic({
-                }).then(res => {
-                    this.newmusic = res.data.result;
-                    // console.log(this.newmusic)
-                    //计算歌曲时间
-                    for (let i = 0; i < this.newmusic.length; i++) {
-                        let min = parseInt(this.newmusic[i].song.duration / 1000 / 60)
-                        let sec = parseInt((this.newmusic[i].song.duration / 1000) % 60)
-                        if (min < 10) {
-                            min = '0' + min
-                        }
-                        if (sec < 10) {
-                            sec = '0' + sec
-                        }
-                        this.newmusic[i].song.duration = min + ":" + sec;
-                        // console.log(this.newmusic[i].song.duration)
-                    }
-                })
-            },
-
-
-
-            // 播放歌曲
-            playMusic(id,name) {
-               
-                // 改变当前歌曲num
-                this.$store.commit("changAudioNum",id);
-                // 改变当前歌曲名
-                this.$store.commit("changAudioName",name)
-
-                // 改变当前歌曲状态为TRUE
-                if (!this.audioPlayState){
-                    this.$store.commit("changaudioPlayStateT",1)
-                    // console.log('contentme this.audioPlayState',this.audioPlayState);
-                }
-
-            },
-
-
-            openplaylist(playlistid) {
-                this.$router.push({ path: '/Playlist', query: { playlistid: playlistid } })
-            }
-        },
-
+export default {
+  data() {
+    return {
+      //歌单数据
+      indexsonglist: [],
+      //初始页
+      currentPage: 1,
+      count: "",
+      //新歌曲推荐
+      newmusic: [],
+      // 歌曲数组
+      musicList: [],
+      // 歌曲地址
+      musicUrl: "",
+      DownloadSongUrl: "",
+      activeName: "second",
+      //音乐地址
+      songurladd: null,
+      //歌词
+      songlrc: "",
     };
+  },
+  computed: {
+    ...mapState(["audioSrcAuthorName", "audioPlayState", "audioSrcName"]),
+  },
+  created() {
+    this.showsongList();
+    this.newmusicc();
+  },
+  methods: {
+    //分页
+    handleCurrentChange: function (currentPage) {
+      // console.log(`当前页: ${currentPage}`);
+      this.currentPage = currentPage;
+      // console.log(this.currentPage)
+      this.showsongList(currentPage);
+    },
+    //获取歌单
+    showsongList(page = 1) {
+      getsongList({
+        limit: 15,
+        offset: (page - 1) * 15,
+      }).then((res) => {
+        this.indexsonglist = res.data.playlists;
+        this.count = res.data.total;
+        // console.log(this.count)
+        // console.log(this.indexsonglist)
+      });
+    },
+    //新歌推荐
+    newmusicc() {
+      getnewmusic({}).then((res) => {
+        this.newmusic = res.data.result;
+        // console.log(this.newmusic)
+        //计算歌曲时间
+        for (let i = 0; i < this.newmusic.length; i++) {
+          let min = parseInt(this.newmusic[i].song.duration / 1000 / 60);
+          let sec = parseInt((this.newmusic[i].song.duration / 1000) % 60);
+          if (min < 10) {
+            min = "0" + min;
+          }
+          if (sec < 10) {
+            sec = "0" + sec;
+          }
+          this.newmusic[i].song.duration = min + ":" + sec;
+          // console.log(this.newmusic[i].song.duration)
+        }
+      });
+    },
+
+    // 播放歌曲
+    playMusic(id, name) {
+      // 改变当前歌曲num
+      this.$store.commit("changAudioNum", id);
+      // 改变当前歌曲名
+      this.$store.commit("changAudioName", name);
+
+      // 改变当前歌曲状态为TRUE
+      if (!this.audioPlayState) {
+        this.$store.commit("changaudioPlayStateT", 1);
+        // console.log('contentme this.audioPlayState',this.audioPlayState);
+      }
+    },
+
+    openplaylist(playlistid) {
+      this.$router.push({
+        path: "/Playlist",
+        query: { playlistid: playlistid },
+      });
+    },
+  },
+};
 </script>
 <style lang="">
-
 </style>

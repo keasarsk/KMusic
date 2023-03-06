@@ -10,7 +10,7 @@
           </div>
       </div>
       <!-- 右半边歌词 用组件playlyricme实现 -->
-      <div class="right">
+      <div class="righttt">
         <playlricyme></playlricyme>
         
       </div>
@@ -91,20 +91,20 @@ import {mapState,mapGetters,mapMutations,mapActions} from 'vuex'
     transform: translate(-50%, -50%);    
 }
 /* 这里是右边 */
-.right {
+.righttt {
     width: 40%;
-    float:right;
+    /* float:right; */
     height: 65%;
     /* background-color: yellow;  */
     position: absolute;            
-    left: 55%;           
+    left: 50%;           
     /* bottom: 1%;  */
     top: 10%;          
 
 
-    display: flex; /**/
-    justify-content: center; /*水平居中*/
-    align-items: Center; /*垂直居中*/
+    /* display: flex;  */
+    /* justify-content: center; 水平居中 */
+    /* align-items: Center; 垂直居中 */
 }
 
 

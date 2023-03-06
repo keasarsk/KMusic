@@ -170,20 +170,14 @@
 .topInfo{
     display: flex;
     width: 100%;
-    padding: 32px 24px;
-    /* background-color: #FAFAFA; */
-}
-.cover{
-    display: flex;
-    width: 100%;
-    padding: 32px 24px;
+    padding: 5% 5%;
     /* background-color: #FAFAFA; */
 }
 .right{
-    padding-left: 24px;
-    display: flex;
+    /* padding-left: 24px; */
+    display: flex; 
     width: 100%;
-    padding: 32px 24px;
+    padding: 5% 5%;
     color: aliceblue;
 }
 </style>

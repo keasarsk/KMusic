@@ -19,3 +19,10 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# 每次开发完要 :
+npm build
+git add .
+git commit -m " "
+git push
+git subtree push --prefix dist origin gh-pages    将dist目录推送到远程的gh-pages分支
